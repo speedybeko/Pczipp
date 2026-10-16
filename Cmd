@@ -1,18 +1,5 @@
-FROM hf.co/tencent/HY-MT1.5-1.8B-GGUF
+gathering model components
+using existing layer sha256:...
+...
+success
 
-TEMPLATE """<|im_start|>user
-Translate the following English subtitle into natural Turkish. Output only the Turkish translation:
-{{ .Prompt }}<|im_end|>
-<|im_start|>assistant
-"""
-
-PARAMETER temperature 0.1
-PARAMETER top_p 0.9
-PARAMETER top_k 20
-PARAMETER repeat_penalty 1.2
-PARAMETER num_predict 256
-
-PARAMETER stop "<|im_end|>"
-PARAMETER stop "<|im_start|>"
-PARAMETER stop "<|endoftext|>"
-PARAMETER stop "</s>"
