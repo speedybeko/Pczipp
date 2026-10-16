@@ -1,8 +1,7 @@
-FROM ./hymt-1.25bit.gguf
+FROM hf.co/tencent/HY-MT1.5-1.8B-GGUF
 
-TEMPLATE """<|im_start|>system
-Sen profesyonel bir İngilizce-Türkçe çevirmensin. Kullanıcının verdiği metni doğal, akıcı Türkçeye çevir. Sadece çeviriyi yaz, açıklama ekleme.<|im_end|>
-<|im_start|>user
+TEMPLATE """<|im_start|>user
+Translate the following English subtitle into natural Turkish. Output only the Turkish translation:
 {{ .Prompt }}<|im_end|>
 <|im_start|>assistant
 """
@@ -10,7 +9,7 @@ Sen profesyonel bir İngilizce-Türkçe çevirmensin. Kullanıcının verdiği m
 PARAMETER temperature 0.1
 PARAMETER top_p 0.9
 PARAMETER top_k 20
-PARAMETER repeat_penalty 1.15
+PARAMETER repeat_penalty 1.2
 PARAMETER num_predict 256
 
 PARAMETER stop "<|im_end|>"
