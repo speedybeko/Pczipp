@@ -1,0 +1,19 @@
+(
+echo FROM hf.co/tencent/HY-MT1.5-1.8B-GGUF
+echo TEMPLATE """<|im_start|>user
+echo Translate the following English text into natural Turkish. Output only the Turkish translation:
+echo {{ .Prompt }}<|im_end|>
+echo <|im_start|>assistant
+echo """
+echo PARAMETER stop "<|im_end|>"
+echo PARAMETER stop "<|endoftext|>"
+echo PARAMETER temperature 0.1
+) > Modelfile
+
+
+
+
+
+ollama create hymt -f Modelfile
+ollama run hymt
+We are unlikely allies, united for a common cause. Worry not.
